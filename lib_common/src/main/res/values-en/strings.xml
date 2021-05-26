@@ -1,0 +1,24 @@
+<resources>
+    <!--二维码扫描界面-->
+    <string name="qrcodescan_title">QR Code / Bar Code</string>
+    <string name="qrcodescan_album">Album</string>
+    <string name="qrcodescan_hint">The QR code / bar code can be automatically scanned in the box</string>
+    <string name="qrcodescan_open_camera_error">Unable to use camera</string>
+    <string name="qrcodescan_decode_error">Unable to identify QR code / bar code</string>
+    <string name="qrcode_dialog_message">Identifying...</string>
+    <string name="qrcode_turn_on_light">Light on</string>
+    <string name="qrcode_turn_off_light">light off</string>
+    <string name="qrcode_parse_picture">Pictures</string>
+
+    <string name="dialog_permission_title">Permissions request</string>
+    <string name="dialog_runtime_rationale_message">%1$s needs to use the following permissions, to ensure normal use of functions:\n%2$s</string>
+    <string name="dialog_runtime_neverask_message">%1$s can not obtain the following permissions, you can manually authorize to ensure normal use of functions:\n%2$s</string>
+    <string name="dialog_install_rationale_message">%1$s needs the permission of installing application</string>
+    <string name="dialog_overlay_rationale_message">%1$s needs the permission of drawing on other applications</string>
+    <string name="dialog_show_notification_message">%1$s needs the permission of sending notification</string>
+    <string name="dialog_access_notification_message">%1$s needs the permission of accessing notification</string>
+    <string name="warning_permission_denied">Permission denied</string>
+    <string name="dialog_permission_auth">To authorize</string>
+    <string name="dialog_permission_setting">To Setting</string>
+
+</resources>

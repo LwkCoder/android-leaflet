@@ -1,0 +1,3 @@
+include ':lib_leaflet'
+include ':app', ':lib_dependencies', ':lib_core', ':lib_common'
+include ':demo'

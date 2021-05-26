@@ -1,0 +1,24 @@
+<resources>
+    <!--二维码扫描界面-->
+    <string name="qrcodescan_title">二维码/条码</string>
+    <string name="qrcodescan_album">相册</string>
+    <string name="qrcodescan_hint">将二维码/条码放入框内，即可自动扫描</string>
+    <string name="qrcodescan_open_camera_error">无法正常使用摄像头</string>
+    <string name="qrcodescan_decode_error">无法识别图片内二维码/条码</string>
+    <string name="qrcode_dialog_message">正在识别...</string>
+    <string name="qrcode_turn_on_light">轻触照亮</string>
+    <string name="qrcode_turn_off_light">轻触关闭</string>
+    <string name="qrcode_parse_picture">识别图片</string>
+
+    <string name="dialog_permission_title">权限申请</string>
+    <string name="dialog_runtime_rationale_message">%1$s需要使用以下权限，以保证正常使用功能:\n%2$s</string>
+    <string name="dialog_runtime_neverask_message">%1$s无法使用以下权限，您可手动授权以保证正常使用功能:\n%2$s</string>
+    <string name="dialog_install_rationale_message">%1$s需要授权执行安装应用的权限</string>
+    <string name="dialog_overlay_rationale_message">%1$s需要授权显示悬浮窗的权限</string>
+    <string name="dialog_show_notification_message">%1$s需要授权发送通知栏的权限</string>
+    <string name="dialog_access_notification_message">%1$s需要授权访问通知栏的权限</string>
+    <string name="warning_permission_denied">权限被拒绝</string>
+    <string name="dialog_permission_auth">去授权</string>
+    <string name="dialog_permission_setting">去设置</string>
+
+</resources>

@@ -1,0 +1,41 @@
+apply from: "config.gradle"
+
+buildscript {
+    ext.gradle_version = '4.1.2'
+    ext.kotlin_version = '1.4.31'
+    ext.dexcount_version = '2.0.0'
+    ext.bus_version = '2.6'
+
+    repositories {
+        mavenCentral()
+        jcenter()
+        google()
+
+        maven { url 'https://maven.google.com/' }
+        maven { url 'https://www.jitpack.io' }
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    }
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:$gradle_version"
+        classpath "com.getkeepsafe.dexcount:dexcount-gradle-plugin:$dexcount_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.blankj:bus-gradle-plugin:$bus_version"
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+        jcenter()
+        google()
+
+        maven { url 'https://maven.google.com/' }
+        maven { url 'https://www.jitpack.io' }
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

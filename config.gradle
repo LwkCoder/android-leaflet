@@ -1,0 +1,171 @@
+ext {
+    /*项目基础配置*/
+    androidConfig = [
+            minSdkVersion    : 21,
+            targetSdkVersion : 30,
+            compileSdkVersion: 30,
+    ]
+
+    appConfig = [
+            applicationId: "com.lwkandroid.app",
+            versionCode  : 1,
+            versionName  : "1.0.0",
+            //Debug环境下配置
+            debug        : [
+                    appName: "WingsAppDebug",
+                    baseUrl: "http://localhost:8080",
+            ],
+            //Release环境下配置
+            release      : [
+                    appName: "WingsAppRelease",
+                    baseUrl: "http://localhost:8080",
+            ],
+            //通用配置
+            common       : [
+                    key1: "value1",
+                    key2: "value2",
+                    key3: "value3",
+            ],
+
+    ]
+
+    /*外部库版本号*/
+    version = [
+            AppCompatX          : "1.2.0",
+            AnnotationX         : "1.1.0",
+            AndroidMaterial     : "1.3.0",
+            AndroidXJunit       : "1.1.2",
+            AndroidXEspressoCore: "3.3.0",
+            AndPermission       : "2.0.3",
+            BGACode             : "1.3.6",
+            ComActionBar        : "1.1.7",
+            ConstraintLayout    : "2.0.4",
+            Chucker             : "3.4.0",
+            DiskLruCache        : "2.0.2",
+            Glide               : "4.11.0",
+            Gson                : "2.8.6",
+            ImagePicker         : "1.5.0",
+            Junit               : "4.12",
+            KotlinCore          : "1.3.0",
+            LeakCanary          : "2.4",
+            NineGridView        : "1.4.4",
+            OkHttp              : "4.8.1",
+            RecyclerViewX       : "1.1.0",
+            RcvAdapter          : "1.4.4",
+            Retrofit            : "2.9.0",
+            Room                : "2.3.0-beta01",
+            RXJava              : "3.0.5",
+            RXAndroid           : "3.0.0",
+            RXBinding           : "4.0.0",
+            SwipeRefreshX       : "1.1.0",
+            Stetho              : "1.5.1",
+            ViewPagerAdapter    : "1.2.0"
+    ]
+
+    /*常用外部库的引用路径，并非所有都需要依赖，只是为了要用时能快速添加*/
+    dependencies = [
+            AppCompatX          : "androidx.appcompat:appcompat:${version.AppCompatX}",
+            AnnotationX         : "androidx.annotation:annotation:${version.AnnotationX}",
+            AndroidMaterial     : "com.google.android.material:material:${version.AndroidMaterial}",
+            AndroidXJunit       : "androidx.test.ext:junit:${version.AndroidXJunit}",
+            AndroidXEspressoCore: "androidx.test.espresso:espresso-core:${version.AndroidXEspressoCore}",
+            AndPermission       : "com.yanzhenjie:permission:${version.AndPermission}",
+            BGACode             : "cn.bingoogolapple:bga-qrcode-zxing:${version.BGACode}",
+            ComActionBar        : "com.lwkandroid.widget:ComActionBar:${version.ComActionBar}",
+            ConstraintLayout    : "androidx.constraintlayout:constraintlayout:${version.ConstraintLayout}",
+            Chucker             : "com.github.ChuckerTeam.Chucker:library:${version.Chucker}",
+            DiskLruCache        : "com.jakewharton:disklrucache:${version.DiskLruCache}",
+            GlideCore           : "com.github.bumptech.glide:glide:${version.Glide}",
+            GlideOkHttp         : "com.github.bumptech.glide:okhttp3-integration:${version.Glide}",
+            GlideCompiler       : "com.github.bumptech.glide:compiler:${version.Glide}",
+            Gson                : "com.google.code.gson:gson:${version.Gson}",
+            ImagePicker         : "com.lwkandroid:ImagePicker:${version.ImagePicker}",
+            Junit               : "junit:junit:${version.Junit}",
+            KotlinStd           : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
+            KotlinCore          : "androidx.core:core-ktx:${version.KotlinCore}",
+            LeakCanary          : "com.squareup.leakcanary:leakcanary-android:${version.LeakCanary}",
+            NineGridView        : "com.lwkandroid.widget:NineGridView:${version.NineGridView}",
+            OkHttp              : "com.squareup.okhttp3:okhttp:${version.OkHttp}",
+            RecyclerViewX       : "androidx.recyclerview:recyclerview:${version.RecyclerViewX}",
+            RcvAdapter          : "com.lwkandroid:recyclerviewadapter:${version.RcvAdapter}",
+            Retrofit            : "com.squareup.retrofit2:retrofit:${version.Retrofit}",
+            RetrofitRxAdapter   : "com.squareup.retrofit2:adapter-rxjava3:${version.Retrofit}",
+            RoomCore            : "androidx.room:room-runtime:${version.Room}",
+            RoomCompiler        : "androidx.room:room-compiler:${version.Room}",
+            RoomRxAdapter       : "androidx.room:room-rxjava3:${version.Room}",
+            RXJava              : "io.reactivex.rxjava3:rxjava:${version.RXJava}",
+            RXAndroid           : "io.reactivex.rxjava3:rxandroid:${version.RXAndroid}",
+            RXBindingCore       : "com.jakewharton.rxbinding4:rxbinding-core:${version.RXBinding}",
+            RXBindingAppCompat  : "com.jakewharton.rxbinding4:rxbinding-appcompat:${version.RXBinding}",
+            SwipeRefreshX       : "androidx.swiperefreshlayout:swiperefreshlayout:${version.SwipeRefreshX}",
+            Stetho              : "com.facebook.stetho:stetho:${version.Stetho}",
+            StethoOkHttp        : "com.facebook.stetho:stetho-okhttp3:${version.Stetho}",
+            ViewPagerAdapter    : "com.lwkandroid:ViewPagerAdapter:${version.ViewPagerAdapter}"
+    ]
+
+    /*library层依赖*/
+    libDep = [
+            implementation           : [
+                    dependencies.KotlinStd,
+                    dependencies.KotlinCore
+            ],
+            testImplementation       : [
+                    dependencies.Junit
+            ],
+            androidTestImplementation: [
+                    dependencies.AndroidXJunit,
+                    dependencies.AndroidXEspressoCore
+            ],
+            api                      : [
+                    dependencies.AppCompatX,
+                    dependencies.AnnotationX,
+                    dependencies.AndPermission,
+                    dependencies.BGACode,
+                    dependencies.ComActionBar,
+                    dependencies.ConstraintLayout,
+                    dependencies.DiskLruCache,
+                    dependencies.GlideCore,
+                    dependencies.GlideOkHttp,
+                    dependencies.Gson,
+                    dependencies.ImagePicker,
+                    dependencies.OkHttp,
+                    dependencies.RecyclerViewX,
+                    dependencies.RcvAdapter,
+                    dependencies.Retrofit,
+                    dependencies.RetrofitRxAdapter,
+                    dependencies.RoomCore,
+                    dependencies.RoomRxAdapter,
+                    dependencies.RXJava,
+                    dependencies.RXAndroid,
+                    dependencies.RXBindingCore,
+                    dependencies.RXBindingAppCompat,
+                    dependencies.SwipeRefreshX
+            ],
+            debugApi                 : [
+                    dependencies.Chucker,
+                    dependencies.LeakCanary,
+                    dependencies.Stetho,
+                    dependencies.StethoOkHttp
+            ]
+    ]
+
+    /*app Module的依赖*/
+    appDep = [
+            implementation           : [
+                    dependencies.KotlinStd,
+                    dependencies.KotlinCore
+            ],
+            testImplementation       : [
+                    dependencies.Junit
+            ],
+            androidTestImplementation: [
+                    dependencies.AndroidXJunit,
+                    dependencies.AndroidXEspressoCore
+            ],
+            annotationProcessor      : [
+                    dependencies.GlideCompiler,
+                    dependencies.RoomCompiler
+            ]
+    ]
+
+}

@@ -1,0 +1,18 @@
+<resources>
+    <!--常用文案-->
+    <string name="done">完成</string>
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+    <string name="back">返回</string>
+
+    <string name="rxhttp_error_parse_data">数据解析错误</string>
+    <string name="rxhttp_error_cast_data">数据类型转换错误</string>
+    <string name="rxhttp_error_connect_fail">服务器连接失败</string>
+    <string name="rxhttp_error_ssl_invalid">证书验证失败</string>
+    <string name="rxhttp_error_connect_timeout">服务器连接超时</string>
+    <string name="rxhttp_error_unknow_host">无法解析服务器地址</string>
+    <string name="rxhttp_error_nullpointer">空指针异常</string>
+    <string name="rxhttp_error_io">IO读写错误</string>
+    <string name="rxhttp_error_response_empty">服务器无响应</string>
+    <string name="rxhttp_error_cache_empty">本地无缓存</string>
+</resources>

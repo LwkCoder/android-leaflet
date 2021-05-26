@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/ll_loading_dialog_root"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_dialog_loading"
+    android:orientation="vertical">
+
+    <com.lwkandroid.lib.common.widgets.ui.LoadingView
+        android:id="@+id/lv_loading_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        app:loading_view_size="@dimen/spacing_larger" />
+
+    <TextView
+        android:id="@+id/tv_loading_dialog"
+        style="@style/MediumTextStyle"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/spacing_normal"
+        android:textColor="@color/white" />
+
+</LinearLayout>

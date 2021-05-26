@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.lwkandroid.lib.common.widgets.view.RLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/spacing_normal"
+    android:orientation="vertical"
+    android:padding="@dimen/spacing_normal"
+    app:background_normal="@color/gray_lighter"
+    app:border_color_normal="@color/gray_darker"
+    app:border_width_normal="1px"
+    app:corner_radius="@dimen/spacing_small">
+
+    <com.lwkandroid.lib.common.widgets.view.RTextView
+        android:id="@+id/tv_dialog_custom_title"
+        style="@style/LargeTextStyle"
+        android:textColor="@color/text_black_normal" />
+
+    <com.lwkandroid.lib.common.widgets.view.RTextView
+        android:id="@+id/tv_dialog_custom_content"
+        style="@style/NormalTextStyle"
+        android:textColor="@color/text_black_normal" />
+
+    <com.lwkandroid.lib.common.widgets.view.RTextView
+        android:id="@+id/btn_dialog_custom_close"
+        style="@style/MediumTextStyle"
+        android:layout_gravity="bottom|right"
+        android:padding="@dimen/spacing_small"
+        android:text="关闭"
+        app:text_color_normal="@android:color/holo_red_light" />
+
+</com.lwkandroid.lib.common.widgets.view.RLinearLayout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <cn.bingoogolapple.qrcode.zxing.ZXingView
+        android:id="@+id/zxv_qrcode_scan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:qrcv_isTipTextBelowRect="true"
+        app:qrcv_maskColor="@color/transparent"
+        app:qrcv_tipTextSize="@dimen/text_size_small"
+        app:qrcv_verticalBias="0.5" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical|right"
+        android:layout_marginTop="@dimen/spacing_huge"
+        android:layout_marginRight="@dimen/spacing_huge"
+        android:layout_marginBottom="@dimen/spacing_huge"
+        android:orientation="vertical">
+
+        <com.lwkandroid.lib.common.widgets.view.RTextView
+            android:id="@+id/tv_qrcode_scan_pictures"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:drawablePadding="@dimen/spacing_small"
+            android:gravity="center_horizontal"
+            android:text="@string/qrcode_parse_picture"
+            app:icon_height_top="50dp"
+            app:icon_normal_top="@drawable/ic_qrcode_album_normal"
+            app:icon_pressed_top="@drawable/ic_qrcode_album_pressed"
+            app:icon_width_top="50dp"
+            app:text_color_normal="@color/white" />
+
+        <com.lwkandroid.lib.common.widgets.view.RCheckBox
+            android:id="@+id/ck_qrcode_scan_light"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawablePadding="@dimen/spacing_small"
+            android:gravity="center_horizontal"
+            android:text="@string/qrcode_turn_on_light"
+            android:textSize="@dimen/text_size_medium"
+            app:icon_checked_top="@drawable/ic_qrcode_light_on"
+            app:icon_height_top="65dp"
+            app:icon_normal_top="@drawable/ic_qrcode_light_off"
+            app:icon_width_top="65dp"
+            app:icon_with_text="false"
+            app:text_color_normal="@color/white" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+</FrameLayout>

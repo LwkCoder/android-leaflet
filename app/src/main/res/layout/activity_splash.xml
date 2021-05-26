@@ -1,0 +1,15 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/actionbar"
+    android:fitsSystemWindows="true"
+    tools:context="com.sources.javacode.project.splash.SplashActivity">
+
+    <com.lwkandroid.lib.common.widgets.view.RTextView
+        style="@style/LargeTextStyle"
+        android:layout_gravity="center"
+        android:text="@string/app_name"
+        android:textColor="@color/white" />
+
+</FrameLayout>

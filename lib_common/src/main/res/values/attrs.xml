@@ -1,0 +1,918 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--PTRLayout-->
+    <declare-styleable name="PTRLayout">
+        <!-- RefreshView的初始offset -->
+        <attr name="refresh_init_offset" format="dimension" />
+        <!-- 刷新时RefreshView的offset -->
+        <attr name="refresh_end_offset" format="dimension" />
+        <!-- TargetView(ListView或者ScrollView等)的初始位置 -->
+        <attr name="target_init_offset" format="dimension" />
+        <!-- 刷新时TargetView(ListView或者ScrollView等)的位置-->
+        <attr name="target_refresh_offset" format="dimension" />
+        <!-- 是否自动根据RefreshView的高度计算RefreshView的初始位置-->
+        <attr name="auto_calculate_refresh_init_offset" format="boolean" />
+        <!-- 是否自动根据TargetView在刷新时的位置计算RefreshView的结束位置-->
+        <attr name="auto_calculate_refresh_end_offset" format="boolean" />
+        <!-- TargetView的刷新位置与RefreshView高度相等-->
+        <attr name="equal_target_refresh_offset_to_refresh_view_height" format="boolean" />
+    </declare-styleable>
+    <attr name="WingsPullRefreshLayoutDefStyle" format="reference" />
+
+    <!--LoadingView-->
+    <declare-styleable name="LoadingView">
+        <attr name="loading_view_size" format="dimension" />
+        <attr name="android:color" />
+    </declare-styleable>
+
+    <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<UI组件基础通用属性>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>-->
+
+    <!--四周圆角度、左上、右上、左下、右下-->
+    <attr name="corner_radius" format="dimension" />
+    <attr name="corner_radius_top_left" format="dimension" />
+    <attr name="corner_radius_top_right" format="dimension" />
+    <attr name="corner_radius_bottom_left" format="dimension" />
+    <attr name="corner_radius_bottom_right" format="dimension" />
+
+    <!--虚线边框宽度/间隔-->
+    <attr name="border_dash_width" format="dimension" />
+    <attr name="border_dash_gap" format="dimension" />
+
+    <!--边框宽度-->
+    <attr name="border_width_normal" format="dimension" />
+    <attr name="border_width_pressed" format="dimension" />
+    <attr name="border_width_unable" format="dimension" />
+    <attr name="border_width_checked" format="dimension" />
+    <attr name="border_width_selected" format="dimension" />
+
+    <!--边框颜色-->
+    <attr name="border_color_normal" format="color" />
+    <attr name="border_color_pressed" format="color" />
+    <attr name="border_color_unable" format="color" />
+    <attr name="border_color_checked" format="color" />
+    <attr name="border_color_selected" format="color" />
+
+    <!--背景颜色-->
+    <attr name="background_normal" format="color|reference" />
+    <attr name="background_pressed" format="color|reference" />
+    <attr name="background_unable" format="color|reference" />
+    <attr name="background_checked" format="color|reference" />
+    <attr name="background_selected" format="color|reference" />
+
+    <!--Gradient相关-->
+    <attr name="gradient_orientation">
+        <enum name="TOP_BOTTOM" value="0" />
+        <enum name="TR_BL" value="1" />
+        <enum name="RIGHT_LEFT" value="2" />
+        <enum name="BR_TL" value="3" />
+        <enum name="BOTTOM_TOP" value="4" />
+        <enum name="BL_TR" value="5" />
+        <enum name="LEFT_RIGHT" value="6" />
+        <enum name="TL_BR" value="7" />
+    </attr>
+    <attr name="gradient_type">
+        <enum name="linear" value="0" />
+        <enum name="radial" value="1" />
+        <enum name="sweep" value="2" />
+    </attr>
+    <attr name="gradient_radius" format="dimension" />
+    <attr name="gradient_centerX" format="float" />
+    <attr name="gradient_centerY" format="float" />
+
+    <!-- TextView相关属性 -->
+
+    <!--文本颜色-->
+    <attr name="text_color_normal" format="color" />
+    <attr name="text_color_pressed" format="color" />
+    <attr name="text_color_unable" format="color" />
+    <attr name="text_color_checked" format="color" />
+    <attr name="text_color_selected" format="color" />
+
+    <!--图标资源,大小,位置-->
+    <attr name="icon_normal_left" format="reference" />
+    <attr name="icon_pressed_left" format="reference" />
+    <attr name="icon_unable_left" format="reference" />
+    <attr name="icon_checked_left" format="reference" />
+    <attr name="icon_selected_left" format="reference" />
+    <attr name="icon_normal_right" format="reference" />
+    <attr name="icon_pressed_right" format="reference" />
+    <attr name="icon_unable_right" format="reference" />
+    <attr name="icon_checked_right" format="reference" />
+    <attr name="icon_selected_right" format="reference" />
+    <attr name="icon_normal_top" format="reference" />
+    <attr name="icon_pressed_top" format="reference" />
+    <attr name="icon_unable_top" format="reference" />
+    <attr name="icon_checked_top" format="reference" />
+    <attr name="icon_selected_top" format="reference" />
+    <attr name="icon_normal_bottom" format="reference" />
+    <attr name="icon_pressed_bottom" format="reference" />
+    <attr name="icon_unable_bottom" format="reference" />
+    <attr name="icon_checked_bottom" format="reference" />
+    <attr name="icon_selected_bottom" format="reference" />
+    <attr name="icon_height_left" format="dimension" />
+    <attr name="icon_width_left" format="dimension" />
+    <attr name="icon_height_bottom" format="dimension" />
+    <attr name="icon_width_bottom" format="dimension" />
+    <attr name="icon_height_top" format="dimension" />
+    <attr name="icon_width_top" format="dimension" />
+    <attr name="icon_height_right" format="dimension" />
+    <attr name="icon_width_right" format="dimension" />
+
+    <!--字体样式-->
+    <attr name="text_typeface" format="string" />
+
+    <!--drawable和text居中-->
+    <attr name="icon_with_text" format="boolean" />
+
+    <!--ViewGroup是否可用-->
+    <attr name="enabled" format="boolean" />
+
+    <!--Ripple相关-->
+    <!--是否开启Ripple-->
+    <attr name="ripple" format="boolean" />
+    <!--Ripple颜色-->
+    <attr name="ripple_color" format="color" />
+    <!--Ripple波纹限制-->
+    <attr name="ripple_mask" format="reference" />
+    <!--Ripple波纹限制-->
+    <attr name="ripple_mask_style">
+        <enum name="none" value="1" />
+        <enum name="normal" value="2" />
+        <enum name="drawable" value="3" />
+    </attr>
+
+    <!--shadow-->
+    <attr name="shadow_dx" format="dimension" />
+    <attr name="shadow_dy" format="dimension" />
+    <attr name="shadow_color" format="color" />
+    <attr name="shadow_radius" format="dimension" />
+
+    <!--是否裁剪布局-->
+    <attr name="clip_layout" format="boolean" />
+
+    <!--RBaseView 通用-->
+    <declare-styleable name="RBaseView">
+
+        <!--四周圆角度、左上、右上、左下、右下-->
+        <attr name="corner_radius" />
+        <attr name="corner_radius_top_left" />
+        <attr name="corner_radius_top_right" />
+        <attr name="corner_radius_bottom_left" />
+        <attr name="corner_radius_bottom_right" />
+
+        <!--虚线边框宽度/间隔-->
+        <attr name="border_dash_width" />
+        <attr name="border_dash_gap" />
+
+        <!--边框宽度-->
+        <attr name="border_width_normal" />
+        <attr name="border_width_pressed" />
+        <attr name="border_width_unable" />
+        <attr name="border_width_checked" />
+        <attr name="border_width_selected" />
+
+        <!--边框颜色-->
+        <attr name="border_color_normal" />
+        <attr name="border_color_pressed" />
+        <attr name="border_color_unable" />
+        <attr name="border_color_checked" />
+        <attr name="border_color_selected" />
+
+        <!--背景颜色-->
+        <attr name="background_normal" />
+        <attr name="background_pressed" />
+        <attr name="background_unable" />
+        <attr name="background_checked" />
+        <attr name="background_selected" />
+
+        <!--Gradient相关-->
+        <attr name="gradient_orientation" />
+        <attr name="gradient_type" />
+        <attr name="gradient_radius" />
+        <attr name="gradient_centerX" />
+        <attr name="gradient_centerY" />
+
+        <!--是否可用-->
+        <attr name="enabled" />
+
+        <!--ripple-->
+        <attr name="ripple" />
+        <attr name="ripple_color" />
+        <attr name="ripple_mask" />
+        <attr name="ripple_mask_style" />
+
+        <!--shadow-->
+        <attr name="shadow_dx" />
+        <attr name="shadow_dy" />
+        <attr name="shadow_color" />
+        <attr name="shadow_radius" />
+
+        <!--clipLayout-->
+        <attr name="clip_layout" />
+    </declare-styleable>
+
+    <!-- TextView -->
+    <declare-styleable name="RTextView">
+
+        <!--四周圆角度、左上、右上、左下、右下-->
+        <attr name="corner_radius" />
+        <attr name="corner_radius_top_left" />
+        <attr name="corner_radius_top_right" />
+        <attr name="corner_radius_bottom_left" />
+        <attr name="corner_radius_bottom_right" />
+
+        <!--虚线边框宽度/间隔-->
+        <attr name="border_dash_width" />
+        <attr name="border_dash_gap" />
+
+        <!--边框宽度-->
+        <attr name="border_width_normal" />
+        <attr name="border_width_pressed" />
+        <attr name="border_width_unable" />
+        <attr name="border_width_selected" />
+
+        <!--边框颜色-->
+        <attr name="border_color_normal" />
+        <attr name="border_color_pressed" />
+        <attr name="border_color_unable" />
+        <attr name="border_color_selected" />
+
+        <!--背景颜色-->
+        <attr name="background_normal" />
+        <attr name="background_pressed" />
+        <attr name="background_unable" />
+        <attr name="background_selected" />
+
+        <!--Gradient相关-->
+        <attr name="gradient_orientation" />
+        <attr name="gradient_type" />
+        <attr name="gradient_radius" />
+        <attr name="gradient_centerX" />
+        <attr name="gradient_centerY" />
+
+        <!--文本颜色-->
+        <attr name="text_color_normal" />
+        <attr name="text_color_pressed" />
+        <attr name="text_color_unable" />
+        <attr name="text_color_selected" />
+
+        <!--图标资源,大小-->
+        <attr name="icon_normal_left" />
+        <attr name="icon_pressed_left" />
+        <attr name="icon_unable_left" />
+        <attr name="icon_checked_left" />
+        <attr name="icon_selected_left" />
+        <attr name="icon_normal_right" />
+        <attr name="icon_pressed_right" />
+        <attr name="icon_unable_right" />
+        <attr name="icon_checked_right" />
+        <attr name="icon_selected_right" />
+        <attr name="icon_normal_top" />
+        <attr name="icon_pressed_top" />
+        <attr name="icon_unable_top" />
+        <attr name="icon_checked_top" />
+        <attr name="icon_selected_top" />
+        <attr name="icon_normal_bottom" />
+        <attr name="icon_pressed_bottom" />
+        <attr name="icon_unable_bottom" />
+        <attr name="icon_checked_bottom" />
+        <attr name="icon_selected_bottom" />
+        <attr name="icon_height_left" />
+        <attr name="icon_width_left" />
+        <attr name="icon_height_bottom" />
+        <attr name="icon_width_bottom" />
+        <attr name="icon_height_top" />
+        <attr name="icon_width_top" />
+        <attr name="icon_height_right" />
+        <attr name="icon_width_right" />
+
+        <!--字体样式-->
+        <attr name="text_typeface" />
+
+        <!--drawable和Text居中-->
+        <attr name="icon_with_text" />
+
+        <!--是否可用-->
+        <attr name="enabled" />
+
+        <!--ripple-->
+        <attr name="ripple" />
+        <attr name="ripple_color" />
+        <attr name="ripple_mask" />
+        <attr name="ripple_mask_style" />
+
+        <!--shadow-->
+        <attr name="shadow_dx" />
+        <attr name="shadow_dy" />
+        <attr name="shadow_color" />
+        <attr name="shadow_radius" />
+
+        <!--clipLayout-->
+        <attr name="clip_layout" />
+    </declare-styleable>
+
+    <!-- REditText -->
+    <declare-styleable name="REditText">
+
+        <!--四周圆角度、左上、右上、左下、右下-->
+        <attr name="corner_radius" />
+        <attr name="corner_radius_top_left" />
+        <attr name="corner_radius_top_right" />
+        <attr name="corner_radius_bottom_left" />
+        <attr name="corner_radius_bottom_right" />
+
+        <!--虚线边框宽度/间隔-->
+        <attr name="border_dash_width" />
+        <attr name="border_dash_gap" />
+
+        <!--边框宽度-->
+        <attr name="border_width_normal" />
+        <attr name="border_width_pressed" />
+        <attr name="border_width_unable" />
+        <attr name="border_width_selected" />
+
+        <!--边框颜色-->
+        <attr name="border_color_normal" />
+        <attr name="border_color_pressed" />
+        <attr name="border_color_unable" />
+        <attr name="border_color_selected" />
+
+        <!--背景颜色-->
+        <attr name="background_normal" />
+        <attr name="background_pressed" />
+        <attr name="background_unable" />
+        <attr name="background_selected" />
+
+        <!--Gradient相关-->
+        <attr name="gradient_orientation" />
+        <attr name="gradient_type" />
+        <attr name="gradient_radius" />
+        <attr name="gradient_centerX" />
+        <attr name="gradient_centerY" />
+
+        <!--文本颜色-->
+        <attr name="text_color_normal" />
+        <attr name="text_color_pressed" />
+        <attr name="text_color_unable" />
+        <attr name="text_color_selected" />
+
+        <!--图标资源,大小-->
+        <attr name="icon_normal_left" />
+        <attr name="icon_pressed_left" />
+        <attr name="icon_unable_left" />
+        <attr name="icon_checked_left" />
+        <attr name="icon_selected_left" />
+        <attr name="icon_normal_right" />
+        <attr name="icon_pressed_right" />
+        <attr name="icon_unable_right" />
+        <attr name="icon_checked_right" />
+        <attr name="icon_selected_right" />
+        <attr name="icon_normal_top" />
+        <attr name="icon_pressed_top" />
+        <attr name="icon_unable_top" />
+        <attr name="icon_checked_top" />
+        <attr name="icon_selected_top" />
+        <attr name="icon_normal_bottom" />
+        <attr name="icon_pressed_bottom" />
+        <attr name="icon_unable_bottom" />
+        <attr name="icon_checked_bottom" />
+        <attr name="icon_selected_bottom" />
+        <attr name="icon_height_left" />
+        <attr name="icon_width_left" />
+        <attr name="icon_height_bottom" />
+        <attr name="icon_width_bottom" />
+        <attr name="icon_height_top" />
+        <attr name="icon_width_top" />
+        <attr name="icon_height_right" />
+        <attr name="icon_width_right" />
+
+        <!--字体样式-->
+        <attr name="text_typeface" />
+
+        <!--drawable和Text居中-->
+        <attr name="icon_with_text" />
+
+        <!--是否可用-->
+        <attr name="enabled" />
+
+        <!--ripple-->
+        <attr name="ripple" />
+        <attr name="ripple_color" />
+        <attr name="ripple_mask" />
+        <attr name="ripple_mask_style" />
+
+        <!--shadow-->
+        <attr name="shadow_dx" />
+        <attr name="shadow_dy" />
+        <attr name="shadow_color" />
+        <attr name="shadow_radius" />
+    </declare-styleable>
+
+    <!-- ImageView -->
+    <declare-styleable name="RImageView">
+        <!--四周圆角度、左上、右上、左下、右下-->
+        <attr name="corner_radius" />
+        <attr name="corner_radius_top_left" />
+        <attr name="corner_radius_top_right" />
+        <attr name="corner_radius_bottom_left" />
+        <attr name="corner_radius_bottom_right" />
+
+        <!--边框-->
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+
+        <!--是否圆形-->
+        <attr name="is_circle" format="boolean" />
+    </declare-styleable>
+
+    <!-- RLinearLayout -->
+    <declare-styleable name="RLinearLayout">
+
+        <!--四周圆角度、左上、右上、左下、右下-->
+        <attr name="corner_radius" />
+        <attr name="corner_radius_top_left" />
+        <attr name="corner_radius_top_right" />
+        <attr name="corner_radius_bottom_left" />
+        <attr name="corner_radius_bottom_right" />
+
+        <!--虚线边框宽度/间隔-->
+        <attr name="border_dash_width" />
+        <attr name="border_dash_gap" />
+
+        <!--边框宽度-->
+        <attr name="border_width_normal" />
+        <attr name="border_width_pressed" />
+        <attr name="border_width_unable" />
+        <attr name="border_width_selected" />
+
+        <!--边框颜色-->
+        <attr name="border_color_normal" />
+        <attr name="border_color_pressed" />
+        <attr name="border_color_unable" />
+        <attr name="border_color_selected" />
+
+        <!--背景颜色-->
+        <attr name="background_normal" />
+        <attr name="background_pressed" />
+        <attr name="background_unable" />
+        <attr name="background_selected" />
+
+        <!--Gradient相关-->
+        <attr name="gradient_orientation" />
+        <attr name="gradient_type" />
+        <attr name="gradient_radius" />
+        <attr name="gradient_centerX" />
+        <attr name="gradient_centerY" />
+
+        <!--是否可用-->
+        <attr name="enabled" />
+
+        <!--ripple-->
+        <attr name="ripple" />
+        <attr name="ripple_color" />
+        <attr name="ripple_mask" />
+        <attr name="ripple_mask_style" />
+
+        <!--shadow-->
+        <attr name="shadow_dx" />
+        <attr name="shadow_dy" />
+        <attr name="shadow_color" />
+        <attr name="shadow_radius" />
+
+        <!--clipLayout-->
+        <attr name="clip_layout" />
+    </declare-styleable>
+
+    <!-- RRelativeLayout -->
+    <declare-styleable name="RRelativeLayout">
+
+        <!--四周圆角度、左上、右上、左下、右下-->
+        <attr name="corner_radius" />
+        <attr name="corner_radius_top_left" />
+        <attr name="corner_radius_top_right" />
+        <attr name="corner_radius_bottom_left" />
+        <attr name="corner_radius_bottom_right" />
+
+        <!--虚线边框宽度/间隔-->
+        <attr name="border_dash_width" />
+        <attr name="border_dash_gap" />
+
+        <!--边框宽度-->
+        <attr name="border_width_normal" />
+        <attr name="border_width_pressed" />
+        <attr name="border_width_unable" />
+        <attr name="border_width_selected" />
+
+        <!--边框颜色-->
+        <attr name="border_color_normal" />
+        <attr name="border_color_pressed" />
+        <attr name="border_color_unable" />
+        <attr name="border_color_selected" />
+
+        <!--背景颜色-->
+        <attr name="background_normal" />
+        <attr name="background_pressed" />
+        <attr name="background_unable" />
+        <attr name="background_selected" />
+
+        <!--Gradient相关-->
+        <attr name="gradient_orientation" />
+        <attr name="gradient_type" />
+        <attr name="gradient_radius" />
+        <attr name="gradient_centerX" />
+        <attr name="gradient_centerY" />
+
+        <!--是否可用-->
+        <attr name="enabled" />
+
+        <!--ripple-->
+        <attr name="ripple" />
+        <attr name="ripple_color" />
+        <attr name="ripple_mask" />
+        <attr name="ripple_mask_style" />
+
+        <!--shadow-->
+        <attr name="shadow_dx" />
+        <attr name="shadow_dy" />
+        <attr name="shadow_color" />
+        <attr name="shadow_radius" />
+
+        <!--clipLayout-->
+        <attr name="clip_layout" />
+    </declare-styleable>
+
+    <!-- RFrameLayout -->
+    <declare-styleable name="RFrameLayout">
+
+        <!--四周圆角度、左上、右上、左下、右下-->
+        <attr name="corner_radius" />
+        <attr name="corner_radius_top_left" />
+        <attr name="corner_radius_top_right" />
+        <attr name="corner_radius_bottom_left" />
+        <attr name="corner_radius_bottom_right" />
+
+        <!--虚线边框宽度/间隔-->
+        <attr name="border_dash_width" />
+        <attr name="border_dash_gap" />
+
+        <!--边框宽度-->
+        <attr name="border_width_normal" />
+        <attr name="border_width_pressed" />
+        <attr name="border_width_unable" />
+        <attr name="border_width_selected" />
+
+        <!--边框颜色-->
+        <attr name="border_color_normal" />
+        <attr name="border_color_pressed" />
+        <attr name="border_color_unable" />
+        <attr name="border_color_selected" />
+
+        <!--背景颜色-->
+        <attr name="background_normal" />
+        <attr name="background_pressed" />
+        <attr name="background_unable" />
+        <attr name="background_selected" />
+
+        <!--Gradient相关-->
+        <attr name="gradient_orientation" />
+        <attr name="gradient_type" />
+        <attr name="gradient_radius" />
+        <attr name="gradient_centerX" />
+        <attr name="gradient_centerY" />
+
+        <!--是否可用-->
+        <attr name="enabled" />
+
+        <!--ripple-->
+        <attr name="ripple" />
+        <attr name="ripple_color" />
+        <attr name="ripple_mask" />
+        <attr name="ripple_mask_style" />
+
+        <!--shadow-->
+        <attr name="shadow_dx" />
+        <attr name="shadow_dy" />
+        <attr name="shadow_color" />
+        <attr name="shadow_radius" />
+
+        <!--clipLayout-->
+        <attr name="clip_layout" />
+    </declare-styleable>
+
+    <!-- RConstraintLayout -->
+    <declare-styleable name="RConstraintLayout">
+
+        <!--四周圆角度、左上、右上、左下、右下-->
+        <attr name="corner_radius" />
+        <attr name="corner_radius_top_left" />
+        <attr name="corner_radius_top_right" />
+        <attr name="corner_radius_bottom_left" />
+        <attr name="corner_radius_bottom_right" />
+
+        <!--虚线边框宽度/间隔-->
+        <attr name="border_dash_width" />
+        <attr name="border_dash_gap" />
+
+        <!--边框宽度-->
+        <attr name="border_width_normal" />
+        <attr name="border_width_pressed" />
+        <attr name="border_width_unable" />
+        <attr name="border_width_selected" />
+
+        <!--边框颜色-->
+        <attr name="border_color_normal" />
+        <attr name="border_color_pressed" />
+        <attr name="border_color_unable" />
+        <attr name="border_color_selected" />
+
+        <!--背景颜色-->
+        <attr name="background_normal" />
+        <attr name="background_pressed" />
+        <attr name="background_unable" />
+        <attr name="background_selected" />
+
+        <!--Gradient相关-->
+        <attr name="gradient_orientation" />
+        <attr name="gradient_type" />
+        <attr name="gradient_radius" />
+        <attr name="gradient_centerX" />
+        <attr name="gradient_centerY" />
+
+        <!--是否可用-->
+        <attr name="enabled" />
+
+        <!--ripple-->
+        <attr name="ripple" />
+        <attr name="ripple_color" />
+        <attr name="ripple_mask" />
+        <attr name="ripple_mask_style" />
+
+        <!--shadow-->
+        <attr name="shadow_dx" />
+        <attr name="shadow_dy" />
+        <attr name="shadow_color" />
+        <attr name="shadow_radius" />
+
+        <!--clipLayout-->
+        <attr name="clip_layout" />
+    </declare-styleable>
+
+    <!-- RView -->
+    <declare-styleable name="RView">
+
+        <!--四周圆角度、左上、右上、左下、右下-->
+        <attr name="corner_radius" />
+        <attr name="corner_radius_top_left" />
+        <attr name="corner_radius_top_right" />
+        <attr name="corner_radius_bottom_left" />
+        <attr name="corner_radius_bottom_right" />
+
+        <!--虚线边框宽度/间隔-->
+        <attr name="border_dash_width" />
+        <attr name="border_dash_gap" />
+
+        <!--边框宽度-->
+        <attr name="border_width_normal" />
+        <attr name="border_width_pressed" />
+        <attr name="border_width_unable" />
+        <attr name="border_width_selected" />
+
+        <!--边框颜色-->
+        <attr name="border_color_normal" />
+        <attr name="border_color_pressed" />
+        <attr name="border_color_unable" />
+        <attr name="border_color_selected" />
+
+        <!--背景颜色-->
+        <attr name="background_normal" />
+        <attr name="background_pressed" />
+        <attr name="background_unable" />
+        <attr name="background_selected" />
+
+        <!--Gradient相关-->
+        <attr name="gradient_orientation" />
+        <attr name="gradient_type" />
+        <attr name="gradient_radius" />
+        <attr name="gradient_centerX" />
+        <attr name="gradient_centerY" />
+
+        <!--是否可用-->
+        <attr name="enabled" />
+
+        <!--ripple-->
+        <attr name="ripple" />
+        <attr name="ripple_color" />
+        <attr name="ripple_mask" />
+        <attr name="ripple_mask_style" />
+
+        <!--shadow-->
+        <attr name="shadow_dx" />
+        <attr name="shadow_dy" />
+        <attr name="shadow_color" />
+        <attr name="shadow_radius" />
+    </declare-styleable>
+
+    <!-- RRadioButton -->
+    <declare-styleable name="RRadioButton">
+
+        <!--四周圆角度、左上、右上、左下、右下-->
+        <attr name="corner_radius" />
+        <attr name="corner_radius_top_left" />
+        <attr name="corner_radius_top_right" />
+        <attr name="corner_radius_bottom_left" />
+        <attr name="corner_radius_bottom_right" />
+
+        <!--虚线边框宽度/间隔-->
+        <attr name="border_dash_width" />
+        <attr name="border_dash_gap" />
+
+        <!--边框宽度-->
+        <attr name="border_width_normal" />
+        <attr name="border_width_pressed" />
+        <attr name="border_width_unable" />
+        <attr name="border_width_checked" />
+        <attr name="border_width_selected" />
+
+        <!--边框颜色-->
+        <attr name="border_color_normal" />
+        <attr name="border_color_pressed" />
+        <attr name="border_color_unable" />
+        <attr name="border_color_checked" />
+        <attr name="border_color_selected" />
+
+        <!--背景颜色-->
+        <attr name="background_normal" />
+        <attr name="background_pressed" />
+        <attr name="background_unable" />
+        <attr name="background_checked" />
+        <attr name="background_selected" />
+
+        <!--Gradient相关-->
+        <attr name="gradient_orientation" />
+        <attr name="gradient_type" />
+        <attr name="gradient_radius" />
+        <attr name="gradient_centerX" />
+        <attr name="gradient_centerY" />
+
+        <!--文本颜色-->
+        <attr name="text_color_normal" />
+        <attr name="text_color_pressed" />
+        <attr name="text_color_unable" />
+        <attr name="text_color_checked" />
+        <attr name="text_color_selected" />
+
+        <!--字体样式-->
+        <attr name="text_typeface" />
+
+        <!--是否可用-->
+        <attr name="enabled" />
+
+        <!--图标资源,大小-->
+        <attr name="icon_normal_left" />
+        <attr name="icon_pressed_left" />
+        <attr name="icon_unable_left" />
+        <attr name="icon_checked_left" />
+        <attr name="icon_selected_left" />
+        <attr name="icon_normal_right" />
+        <attr name="icon_pressed_right" />
+        <attr name="icon_unable_right" />
+        <attr name="icon_checked_right" />
+        <attr name="icon_selected_right" />
+        <attr name="icon_normal_top" />
+        <attr name="icon_pressed_top" />
+        <attr name="icon_unable_top" />
+        <attr name="icon_checked_top" />
+        <attr name="icon_selected_top" />
+        <attr name="icon_normal_bottom" />
+        <attr name="icon_pressed_bottom" />
+        <attr name="icon_unable_bottom" />
+        <attr name="icon_checked_bottom" />
+        <attr name="icon_selected_bottom" />
+        <attr name="icon_height_left" />
+        <attr name="icon_width_left" />
+        <attr name="icon_height_bottom" />
+        <attr name="icon_width_bottom" />
+        <attr name="icon_height_top" />
+        <attr name="icon_width_top" />
+        <attr name="icon_height_right" />
+        <attr name="icon_width_right" />
+
+        <!--drawable和Text居中-->
+        <attr name="icon_with_text" />
+
+        <!--ripple-->
+        <attr name="ripple" />
+        <attr name="ripple_color" />
+        <attr name="ripple_mask" />
+        <attr name="ripple_mask_style" />
+
+        <!--shadow-->
+        <attr name="shadow_dx" />
+        <attr name="shadow_dy" />
+        <attr name="shadow_color" />
+        <attr name="shadow_radius" />
+    </declare-styleable>
+
+    <!-- RCheckBox -->
+    <declare-styleable name="RCheckBox">
+
+        <!--四周圆角度、左上、右上、左下、右下-->
+        <attr name="corner_radius" />
+        <attr name="corner_radius_top_left" />
+        <attr name="corner_radius_top_right" />
+        <attr name="corner_radius_bottom_left" />
+        <attr name="corner_radius_bottom_right" />
+
+        <!--虚线边框宽度/间隔-->
+        <attr name="border_dash_width" />
+        <attr name="border_dash_gap" />
+
+        <!--边框宽度-->
+        <attr name="border_width_normal" />
+        <attr name="border_width_pressed" />
+        <attr name="border_width_unable" />
+        <attr name="border_width_checked" />
+        <attr name="border_width_selected" />
+
+        <!--边框颜色-->
+        <attr name="border_color_normal" />
+        <attr name="border_color_pressed" />
+        <attr name="border_color_unable" />
+        <attr name="border_color_checked" />
+        <attr name="border_color_selected" />
+
+        <!--背景颜色-->
+        <attr name="background_normal" />
+        <attr name="background_pressed" />
+        <attr name="background_unable" />
+        <attr name="background_checked" />
+        <attr name="background_selected" />
+
+        <!--Gradient相关-->
+        <attr name="gradient_orientation" />
+        <attr name="gradient_type" />
+        <attr name="gradient_radius" />
+        <attr name="gradient_centerX" />
+        <attr name="gradient_centerY" />
+
+        <!--文本颜色-->
+        <attr name="text_color_normal" />
+        <attr name="text_color_pressed" />
+        <attr name="text_color_unable" />
+        <attr name="text_color_checked" />
+        <attr name="text_color_selected" />
+
+        <!--字体样式-->
+        <attr name="text_typeface" />
+
+        <!--是否可用-->
+        <attr name="enabled" />
+
+        <!--图标资源,大小-->
+        <attr name="icon_normal_left" />
+        <attr name="icon_pressed_left" />
+        <attr name="icon_unable_left" />
+        <attr name="icon_checked_left" />
+        <attr name="icon_selected_left" />
+        <attr name="icon_normal_right" />
+        <attr name="icon_pressed_right" />
+        <attr name="icon_unable_right" />
+        <attr name="icon_checked_right" />
+        <attr name="icon_selected_right" />
+        <attr name="icon_normal_top" />
+        <attr name="icon_pressed_top" />
+        <attr name="icon_unable_top" />
+        <attr name="icon_checked_top" />
+        <attr name="icon_selected_top" />
+        <attr name="icon_normal_bottom" />
+        <attr name="icon_pressed_bottom" />
+        <attr name="icon_unable_bottom" />
+        <attr name="icon_checked_bottom" />
+        <attr name="icon_selected_bottom" />
+        <attr name="icon_height_left" />
+        <attr name="icon_width_left" />
+        <attr name="icon_height_bottom" />
+        <attr name="icon_width_bottom" />
+        <attr name="icon_height_top" />
+        <attr name="icon_width_top" />
+        <attr name="icon_height_right" />
+        <attr name="icon_width_right" />
+
+        <!--drawable和Text居中-->
+        <attr name="icon_with_text" />
+
+        <!--ripple-->
+        <attr name="ripple" />
+        <attr name="ripple_color" />
+        <attr name="ripple_mask" />
+        <attr name="ripple_mask_style" />
+
+        <!--shadow-->
+        <attr name="shadow_dx" />
+        <attr name="shadow_dy" />
+        <attr name="shadow_color" />
+        <attr name="shadow_radius" />
+    </declare-styleable>
+
+</resources>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/spacing_normal"
+    android:background="@drawable/bg_dialog_template_white">
+
+    <com.lwkandroid.lib.common.widgets.view.RTextView
+        android:id="@+id/tv_dialog_template_title"
+        style="@style/NormalTextStyle"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="@dimen/spacing_normal"
+        android:layout_marginTop="@dimen/spacing_normal"
+        android:layout_marginRight="@dimen/spacing_normal"
+        android:layout_marginBottom="@dimen/spacing_small"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:text_color_normal="@color/text_black_normal"
+        tools:text="@string/dialog_permission_title" />
+
+    <com.lwkandroid.lib.common.widgets.view.RTextView
+        android:id="@+id/tv_dialog_template_content"
+        style="@style/MediumTextStyle"
+        android:layout_width="0dp"
+        android:layout_marginLeft="@dimen/spacing_normal"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:layout_marginRight="@dimen/spacing_normal"
+        android:layout_marginBottom="@dimen/spacing_normal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_dialog_template_title"
+        app:text_color_normal="@color/text_black_normal"
+        tools:text="权限权限权限权限权限权限权限权限权限权限权限权限权限权限权限权限权限权限" />
+
+    <View
+        android:id="@+id/view_dialog_template_line"
+        style="@style/VerticalLine"
+        android:layout_marginTop="@dimen/spacing_normal"
+        android:background="@color/gray_lighter"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_dialog_template_content" />
+
+    <com.lwkandroid.lib.common.widgets.view.RTextView
+        android:id="@+id/tv_dialog_template_negative"
+        style="@style/NormalTextStyle"
+        android:layout_width="0dp"
+        android:gravity="center"
+        android:padding="@dimen/spacing_medium"
+        app:background_pressed="@color/gray_lighter"
+        app:corner_radius_bottom_left="@dimen/spacing_small"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/tv_dialog_template_positive"
+        app:layout_constraintTop_toBottomOf="@+id/view_dialog_template_line"
+        tools:text="@string/cancel" />
+
+    <com.lwkandroid.lib.common.widgets.view.RTextView
+        android:id="@+id/tv_dialog_template_positive"
+        style="@style/NormalTextStyle"
+        android:layout_width="0dp"
+        android:gravity="center"
+        android:padding="@dimen/spacing_medium"
+        app:background_pressed="@color/gray_lighter"
+        app:corner_radius_bottom_right="@dimen/spacing_small"
+        app:layout_constraintLeft_toRightOf="@+id/tv_dialog_template_negative"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_dialog_template_line"
+        tools:text="@string/confirm" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

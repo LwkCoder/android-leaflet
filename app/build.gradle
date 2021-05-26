@@ -1,0 +1,127 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.getkeepsafe.dexcount'
+apply plugin: "com.blankj.bus"
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+def keystorePropertiesFile = rootProject.file("key/keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+def formatDate() {
+    return new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
+}
+
+bus {
+    busUtilsClass "com.lwkandroid.lib.core.utils.common.BusUtils"
+}
+
+android {
+    compileSdkVersion rootProject.ext.androidConfig.compileSdkVersion
+
+    defaultConfig {
+        applicationId rootProject.ext.appConfig.applicationId
+        minSdkVersion rootProject.ext.androidConfig.minSdkVersion
+        targetSdkVersion rootProject.ext.androidConfig.targetSdkVersion
+        versionCode rootProject.ext.appConfig.versionCode
+        versionName rootProject.ext.appConfig.versionName
+        flavorDimensions rootProject.ext.appConfig.versionName
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath true
+            }
+        }
+
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'mips', 'mip64', 'x86', 'x86_64'
+        }
+    }
+
+    signingConfigs {
+        debug {
+            keyAlias keystoreProperties.keyAlias
+            keyPassword keystoreProperties.keyPassword
+            storeFile rootProject.file(keystoreProperties.storeFile)
+            storePassword keystoreProperties.storePassword
+        }
+        release {
+            keyAlias keystoreProperties.keyAlias
+            keyPassword keystoreProperties.keyPassword
+            storeFile rootProject.file(keystoreProperties.storeFile)
+            storePassword keystoreProperties.storePassword
+        }
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix ".dev"
+            resValue "string", "app_name", rootProject.ext.appConfig.debug.appName
+            rootProject.ext.appConfig.debug.each { k, v -> buildConfigField("String", k, "\"${v}\"") }
+            rootProject.ext.appConfig.common.each { k, v -> buildConfigField("String", k, "\"${v}\"") }
+
+            zipAlignEnabled false
+            shrinkResources false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+        release {
+            applicationIdSuffix ".release"
+            resValue "string", "app_name", rootProject.ext.appConfig.release.appName
+            rootProject.ext.appConfig.release.each { k, v -> buildConfigField("String", k, "\"${v}\"") }
+            rootProject.ext.appConfig.common.each { k, v -> buildConfigField("String", k, "\"${v}\"") }
+
+            zipAlignEnabled true
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    productFlavors {
+        normal {
+            manifestPlaceholders = [CHANNEL_NAME: "default"]
+            buildConfigField("String", "APP_CHANNEL", "\"default\"")
+        }
+    }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "app_v${rootProject.ext.appConfig.versionName}_${formatDate()}_${variant.productFlavors[0].name}.apk"
+        }
+    }
+
+    sourceSets {
+        main {
+            assets.srcDirs = ['src/main/assets', 'src/main/assets/']
+            jniLibs.srcDirs('libs')
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+
+    lintOptions {
+        abortOnError false
+        disable 'GoogleAppIndexingWarning'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':lib_common')
+    implementation project(':lib_leaflet')
+    rootProject.ext.appDep.implementation.each { v -> implementation v }
+    rootProject.ext.appDep.testImplementation.each { v -> testImplementation v }
+    rootProject.ext.appDep.androidTestImplementation.each { v -> androidTestImplementation v }
+    rootProject.ext.appDep.annotationProcessor.each { v -> annotationProcessor v }
+}

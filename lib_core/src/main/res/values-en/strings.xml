@@ -1,0 +1,18 @@
+<resources>
+    <!--常用文案-->
+    <string name="done">Done</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="back">Back</string>
+
+    <string name="rxhttp_error_parse_data">Data parsing error</string>
+    <string name="rxhttp_error_cast_data">Data type conversion error</string>
+    <string name="rxhttp_error_connect_fail">Connect failed</string>
+    <string name="rxhttp_error_ssl_invalid">SSL certificate validation failed</string>
+    <string name="rxhttp_error_connect_timeout">Connect timeout</string>
+    <string name="rxhttp_error_unknow_host">Failed to resolve server address</string>
+    <string name="rxhttp_error_nullpointer">NullPointer Exception</string>
+    <string name="rxhttp_error_io">IO Exception</string>
+    <string name="rxhttp_error_response_empty">Server no response</string>
+    <string name="rxhttp_error_cache_empty">No cache available</string>
+</resources>
