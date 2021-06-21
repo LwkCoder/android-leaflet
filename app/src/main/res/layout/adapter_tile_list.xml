@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.lwkandroid.lib.common.widgets.view.RTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/textView"
+    style="@style/MediumTextStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:paddingStart="@dimen/spacing_normal"
+    android:paddingTop="@dimen/spacing_small"
+    android:paddingEnd="@dimen/spacing_normal"
+    android:paddingBottom="@dimen/spacing_small"
+    tools:text="AAAA">
+
+</com.lwkandroid.lib.common.widgets.view.RTextView>

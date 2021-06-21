@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.lwkandroid.lib.common.widgets.view.RFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/spacing_normal"
+    android:layout_marginTop="@dimen/spacing_huge"
+    android:layout_marginEnd="@dimen/spacing_normal"
+    android:layout_marginBottom="@dimen/spacing_huge"
+    android:maxHeight="300dp"
+    app:background_normal="@color/white"
+    app:corner_radius="@dimen/spacing_small">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</com.lwkandroid.lib.common.widgets.view.RFrameLayout>

@@ -12,7 +12,7 @@ import com.tencent.smtt.sdk.WebViewClient;
 
 /**
  * @description:
- * @author: 20180004
+ * @author: LWK
  * @date: 2021/3/11 14:49
  */
 @NotProguard
@@ -48,7 +48,7 @@ public class LeafletWebView extends WebView
         this.setWebViewClient(WEBVIEW_CLIENT);
         initWebViewSettings();
         this.getView().setClickable(true);
-        loadUrl(MAP_LOCATION);
+        initMapPageContent();
     }
 
     private void initWebViewSettings()
@@ -110,5 +110,13 @@ public class LeafletWebView extends WebView
         {
             mMapInflateConsumer.accept(getUrl());
         }
+    }
+
+    /**
+     * 加载地图html文件
+     */
+    public void initMapPageContent()
+    {
+        loadUrl(MAP_LOCATION);
     }
 }

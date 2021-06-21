@@ -7,6 +7,17 @@
     android:orientation="vertical"
     tools:context="com.sources.javacode.project.home.HomeActivity">
 
+    <com.lwkandroid.widget.ComActionBar
+        android:id="@+id/actionBar"
+        style="@style/ActionBarDarkStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:left_click_to_finish="false"
+        app:left_icon_drawable="@null"
+        app:right_text01="切换底图"
+        app:show_divider_line="false"
+        app:title_text="Android-Leaflet" />
+
     <ViewStub
         android:id="@+id/viewStub"
         android:layout_width="match_parent"

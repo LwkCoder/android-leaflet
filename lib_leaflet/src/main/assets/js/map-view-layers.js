@@ -28,23 +28,23 @@ const MAP_BASE_LAYER = "MapBaseLayer";
 /**
  * 切换天地图卫星图
  * @param token 天地图token
- * @param showAnnotion 是否显示标注
+ * @param showAnnotation 是否显示标注
  */
-function showTiandituSatellite(token, showAnnotion) {
+function showTiandituSatellite(token, showAnnotation) {
     _resetCRS(false);
 
     if (typeof (token) == 'undefined') {
         alert("You have to defined the token of Tianditu");
         token = "";
     }
-    showAnnotion = typeof (showAnnotion) == 'undefined' ? true : showAnnotion;
+    showAnnotation = typeof (showAnnotation) == 'undefined' ? true : showAnnotation;
 
     removeLayer(MAP_BASE_LAYER);
     L.tileLayer.layerProvider('TianDiTu.Satellite.Normal', {
         key: token,
         attribution: MAP_BASE_LAYER
     }).addTo(map);
-    if (showAnnotion) {
+    if (showAnnotation) {
         L.tileLayer.layerProvider('TianDiTu.Annotion.Normal', {
             key: token,
             attribution: MAP_BASE_LAYER
@@ -55,23 +55,23 @@ function showTiandituSatellite(token, showAnnotion) {
 /**
  * 切换天地图矢量图
  * @param token 天地图token
- * @param showAnnotion 是否显示标注
+ * @param showAnnotation 是否显示标注
  */
-function showTiandituVector(token, showAnnotion) {
+function showTiandituVector(token, showAnnotation) {
     _resetCRS(false);
 
     if (typeof (token) == 'undefined') {
         alert("You have to defined the token of Tianditu");
         token = "";
     }
-    showAnnotion = typeof (showAnnotion) == 'undefined' ? true : showAnnotion;
+    showAnnotation = typeof (showAnnotation) == 'undefined' ? true : showAnnotation;
 
     removeLayer(MAP_BASE_LAYER);
     L.tileLayer.layerProvider('TianDiTu.Vector.Normal', {
         key: token,
         attribution: MAP_BASE_LAYER
     }).addTo(map);
-    if (showAnnotion) {
+    if (showAnnotation) {
         L.tileLayer.layerProvider('TianDiTu.Annotion.Normal', {
             key: token,
             attribution: MAP_BASE_LAYER
@@ -82,23 +82,23 @@ function showTiandituVector(token, showAnnotion) {
 /**
  * 切换天地图地形图
  * @param token 天地图token
- * @param showAnnotion 是否显示标注
+ * @param showAnnotation 是否显示标注
  */
-function showTiandituTerrain(token, showAnnotion) {
+function showTiandituTerrain(token, showAnnotation) {
     _resetCRS(false);
 
     if (typeof (token) == 'undefined') {
         alert("You have to defined the token of Tianditu");
         token = "";
     }
-    showAnnotion = typeof (showAnnotion) == 'undefined' ? true : showAnnotion;
+    showAnnotation = typeof (showAnnotation) == 'undefined' ? true : showAnnotation;
 
     removeLayer(MAP_BASE_LAYER);
     L.tileLayer.layerProvider('TianDiTu.Terrain.Normal', {
         key: token,
         attribution: MAP_BASE_LAYER
     }).addTo(map);
-    if (showAnnotion) {
+    if (showAnnotation) {
         L.tileLayer.layerProvider('TianDiTu.Annotion.Normal', {
             key: token,
             attribution: MAP_BASE_LAYER
@@ -108,18 +108,18 @@ function showTiandituTerrain(token, showAnnotion) {
 
 /**
  * 切换高德卫星图
- * @param showAnnotion 是否显示标注
+ * @param showAnnotation 是否显示标注
  */
-function showGaodeSatellite(showAnnotion) {
+function showGaodeSatellite(showAnnotation) {
     _resetCRS(false);
 
-    showAnnotion = typeof (showAnnotion) == 'undefined' ? true : showAnnotion;
+    showAnnotation = typeof (showAnnotation) == 'undefined' ? true : showAnnotation;
 
     removeLayer(MAP_BASE_LAYER);
     L.tileLayer.layerProvider('GaoDe.Satellite.Normal', {
         attribution: MAP_BASE_LAYER
     }).addTo(map);
-    if (showAnnotion) {
+    if (showAnnotation) {
         L.tileLayer.layerProvider('GaoDe.Annotion.Normal', {
             attribution: MAP_BASE_LAYER
         }).addTo(map);
@@ -140,18 +140,18 @@ function showGaodeVector() {
 
 /**
  * 切换谷歌卫星图（需要翻墙）
- * @param showAnnotion 是否显示标注
+ * @param showAnnotation 是否显示标注
  */
-function showGoogleSatellite(showAnnotion) {
+function showGoogleSatellite(showAnnotation) {
     _resetCRS(false);
 
-    showAnnotion = typeof (showAnnotion) == 'undefined' ? true : showAnnotion;
+    showAnnotation = typeof (showAnnotation) == 'undefined' ? true : showAnnotation;
 
     removeLayer(MAP_BASE_LAYER);
     L.tileLayer.layerProvider('Google.Satellite.Normal', {
         attribution: MAP_BASE_LAYER
     }).addTo(map);
-    if (showAnnotion) {
+    if (showAnnotation) {
         L.tileLayer.layerProvider('Google.Annotion.Normal', {
             attribution: MAP_BASE_LAYER
         }).addTo(map);
@@ -220,18 +220,18 @@ function showGoogleRetroVector() {
 
 /**
  * 切换百度卫星图
- * @param showAnnotion 是否显示标注
+ * @param showAnnotation 是否显示标注
  */
-function showBaiduSatellite(showAnnotion) {
+function showBaiduSatellite(showAnnotation) {
     _resetCRS(true);
 
-    showAnnotion = typeof (showAnnotion) == 'undefined' ? true : showAnnotion;
+    showAnnotation = typeof (showAnnotation) == 'undefined' ? true : showAnnotation;
 
     removeLayer(MAP_BASE_LAYER);
     L.tileLayer.layerProvider('Baidu.Satellite.Normal', {
         attribution: MAP_BASE_LAYER
     }).addTo(map);
-    if (showAnnotion) {
+    if (showAnnotation) {
         L.tileLayer.layerProvider('Baidu.Annotion.Normal', {
             attribution: MAP_BASE_LAYER
         }).addTo(map);
@@ -409,18 +409,18 @@ function showGeoqNormalVector() {
 
 /**
  * 切换智图暖色矢量图
- * @param showAnnotion 是否显示标注
+ * @param showAnnotation 是否显示标注
  */
-function showGeoqWarmVector(showAnnotion) {
+function showGeoqWarmVector(showAnnotation) {
     _resetCRS(false);
 
-    showAnnotion = typeof (showAnnotion) == 'undefined' ? true : showAnnotion;
+    showAnnotation = typeof (showAnnotation) == 'undefined' ? true : showAnnotation;
 
     removeLayer(MAP_BASE_LAYER);
     L.tileLayer.layerProvider('Geoq.Vector.WarmOnlySymbol', {
         attribution: MAP_BASE_LAYER
     }).addTo(map);
-    if (showAnnotion) {
+    if (showAnnotation) {
         L.tileLayer.layerProvider('Geoq.Vector.WarmRefrence', {
             attribution: MAP_BASE_LAYER
         }).addTo(map);
@@ -429,18 +429,18 @@ function showGeoqWarmVector(showAnnotion) {
 
 /**
  * 切换智图灰色矢量图
- * @param showAnnotion 是否显示标注
+ * @param showAnnotation 是否显示标注
  */
-function showGeoqGrayVector(showAnnotion) {
+function showGeoqGrayVector(showAnnotation) {
     _resetCRS(false);
 
-    showAnnotion = typeof (showAnnotion) == 'undefined' ? true : showAnnotion;
+    showAnnotation = typeof (showAnnotation) == 'undefined' ? true : showAnnotation;
 
     removeLayer(MAP_BASE_LAYER);
     L.tileLayer.layerProvider('Geoq.Vector.GrayOnlySymbol', {
         attribution: MAP_BASE_LAYER
     }).addTo(map);
-    if (showAnnotion) {
+    if (showAnnotation) {
         L.tileLayer.layerProvider('Geoq.Vector.GrayRefrence', {
             attribution: MAP_BASE_LAYER
         }).addTo(map);
@@ -449,18 +449,18 @@ function showGeoqGrayVector(showAnnotion) {
 
 /**
  * 切换智图蓝黑矢量图
- * @param showAnnotion 是否显示标注
+ * @param showAnnotation 是否显示标注
  */
-function showGeoqPurplishBlueVector(showAnnotion) {
+function showGeoqPurplishBlueVector(showAnnotation) {
     _resetCRS(false);
 
-    showAnnotion = typeof (showAnnotion) == 'undefined' ? true : showAnnotion;
+    showAnnotation = typeof (showAnnotation) == 'undefined' ? true : showAnnotation;
 
     removeLayer(MAP_BASE_LAYER);
     L.tileLayer.layerProvider('Geoq.Vector.PurplishBlueOnlySymbol', {
         attribution: MAP_BASE_LAYER
     }).addTo(map);
-    if (showAnnotion) {
+    if (showAnnotation) {
         L.tileLayer.layerProvider('Geoq.Vector.PurplishBlueRefrence', {
             attribution: MAP_BASE_LAYER
         }).addTo(map);
@@ -468,7 +468,7 @@ function showGeoqPurplishBlueVector(showAnnotion) {
 }
 
 /**
- * 切换智图蓝黑矢量图
+ * 切换智图英文矢量图
  */
 function showGeoqEnglishVector() {
     _resetCRS(false);
@@ -510,9 +510,6 @@ function showTencentVector() {
     _resetCRS(false);
 
     removeLayer(MAP_BASE_LAYER);
-    // L.tileLayer.layerProvider('Tencent.Vector.Normal', {
-    //     attribution: MAP_BASE_LAYER
-    // }).addTo(map);
     L.tileLayer.tencentProvider('Tencent.Vector.Normal', {
         attribution: MAP_BASE_LAYER
     }).addTo(map);
@@ -521,24 +518,16 @@ function showTencentVector() {
 /**
  * 切换腾讯地图卫星图
  */
-function showTencentSatellite(showAnnotion) {
+function showTencentSatellite(showAnnotation) {
     _resetCRS(false);
 
-    showAnnotion = typeof (showAnnotion) == 'undefined' ? true : showAnnotion;
+    showAnnotation = typeof (showAnnotation) == 'undefined' ? true : showAnnotation;
 
     removeLayer(MAP_BASE_LAYER);
-    // L.tileLayer.layerProvider('Tencent.Satellite.Normal', {
-    //     attribution: MAP_BASE_LAYER
-    // }).addTo(map);
-    // if (showAnnotion) {
-    //     L.tileLayer.layerProvider('Tencent.Annotion.Normal', {
-    //         attribution: MAP_BASE_LAYER
-    //     }).addTo(map);
-    // }
     L.tileLayer.tencentProvider('Tencent.Satellite.Normal', {
         attribution: MAP_BASE_LAYER
     }).addTo(map);
-    if (showAnnotion) {
+    if (showAnnotation) {
         L.tileLayer.tencentProvider('Tencent.Annotion.Normal', {
             attribution: MAP_BASE_LAYER
         }).addTo(map);
@@ -548,24 +537,16 @@ function showTencentSatellite(showAnnotion) {
 /**
  * 切换腾讯地图地形图
  */
-function showTencentTerrain(showAnnotion) {
+function showTencentTerrain(showAnnotation) {
     _resetCRS(false);
 
-    showAnnotion = typeof (showAnnotion) == 'undefined' ? true : showAnnotion;
+    showAnnotation = typeof (showAnnotation) == 'undefined' ? true : showAnnotation;
 
     removeLayer(MAP_BASE_LAYER);
-    // L.tileLayer.layerProvider('Tencent.Terrain.Normal', {
-    //     attribution: MAP_BASE_LAYER
-    // }).addTo(map);
-    // if (showAnnotion) {
-    //     L.tileLayer.layerProvider('Tencent.Annotion.Normal', {
-    //         attribution: MAP_BASE_LAYER
-    //     }).addTo(map);
-    // }
     L.tileLayer.tencentProvider('Tencent.Terrain.Normal', {
         attribution: MAP_BASE_LAYER
     }).addTo(map);
-    if (showAnnotion) {
+    if (showAnnotation) {
         L.tileLayer.tencentProvider('Tencent.Annotion.Normal', {
             attribution: MAP_BASE_LAYER
         }).addTo(map);

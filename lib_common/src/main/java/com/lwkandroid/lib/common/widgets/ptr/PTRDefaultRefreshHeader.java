@@ -3,8 +3,6 @@ package com.lwkandroid.lib.common.widgets.ptr;
 import android.content.Context;
 import android.util.DisplayMetrics;
 
-import com.lwkandroid.lib.common.R;
-
 import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
 import androidx.appcompat.widget.AppCompatImageView;
@@ -31,7 +29,7 @@ public class PTRDefaultRefreshHeader extends AppCompatImageView implements PTRLa
     {
         super(context);
         mProgress = new CircularProgressDrawable(context);
-        setColorSchemeResources(R.color.colorAccent);
+        setColorSchemeResources(android.R.color.holo_blue_light);
         mProgress.setStyle(CircularProgressDrawable.LARGE);
         mProgress.setAlpha(MAX_ALPHA);
         mProgress.setArrowScale(0.8f);

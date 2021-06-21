@@ -166,4 +166,30 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
+    <!--暗色ActionBar-->
+    <style name="ActionBarDarkStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/actionbar_dark</item>
+        <item name="left_text_color">@color/actionbar_light</item>
+        <item name="title_text_color">@color/actionbar_light</item>
+        <item name="right_text_color01">@color/actionbar_light</item>
+        <item name="right_text_color02">@color/actionbar_light</item>
+        <item name="left_click_to_finish">true</item>
+        <item name="left_icon_drawable">@drawable/cab_left_back_light</item>
+    </style>
+
+    <!--亮色ActionBar-->
+    <style name="ActionBarLightStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/actionbar_light</item>
+        <item name="left_text_color">@color/actionbar_dark</item>
+        <item name="title_text_color">@color/actionbar_dark</item>
+        <item name="right_text_color01">@color/actionbar_dark</item>
+        <item name="right_text_color02">@color/actionbar_dark</item>
+        <item name="left_click_to_finish">true</item>
+        <item name="left_icon_drawable">@drawable/cab_left_back_dark</item>
+    </style>
+
 </resources>
